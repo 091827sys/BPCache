@@ -327,7 +327,7 @@ def llm_eval_run2(
         from two_stage_retriever_dynamic_cache_LRU import TwoStageRetrieverDynamicCached
         from two_stage_retriever_cache_filesize import TwoStageRetrieverCachedFilesize
         from two_stage_retriever_cache_llb import TwoStageRetrieverCachedLLB
-        from two_stage_retriever_cache_s3 import TwoStageRetrieverCachedS3
+        from two_stage_retriever_cache_BPCache import TwoStageRetrieverCachedBPCache
         if(load_cache):
             if(alg == 1):
                 # First Run
@@ -346,7 +346,7 @@ def llm_eval_run2(
                     cost_table=cost_table, cache_obj=cache_state, max_probe_cost=max_probe_cost,
                     cache_max_size=cache_max_size, min_cache_cost = min_cache_cost)
             elif(alg == 4):
-                retriever = TwoStageRetrieverCachedS3(faiss_index=index, corpus_list=corpus,
+                retriever = TwoStageRetrieverCachedBPCache(faiss_index=index, corpus_list=corpus,
                     embed_model=embed_model, redir_table=redir_table, index_dir=index_dir,
                     cost_table=cost_table, cache_obj=cache_state, max_probe_cost=max_probe_cost,
                     cache_max_size=cache_max_size, min_cache_cost = min_cache_cost)
